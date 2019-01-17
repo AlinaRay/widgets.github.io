@@ -1,0 +1,512 @@
+@keyframes pulseOut {
+  50% {
+    opacity: 0; } }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
+  color: #FFF;
+  background-image: linear-gradient(135deg, #494949, #120202);
+  font-family: 'Montserrat', 'Roboto', 'Droid Sans', 'Helvetica Neue', sans-serif; }
+
+ul, ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+p {
+  margin: 1em 0; }
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 4em 1fr 4em;
+  grid-template-columns: 20% 1fr;
+  height: 100vh; }
+
+.header,
+.footer {
+  font-size: 0.75em;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a0a0a0; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  grid-column: 1 / -1;
+  padding: 0 2em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .header__left, .header__right {
+    display: flex;
+    align-items: center; }
+
+.main {
+  grid-column: 1 / -1;
+  padding: 2em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px; }
+  @media screen and (min-width: 1024px) {
+    .main {
+      grid-column: 2 / -1; } }
+
+.footer {
+  display: flex;
+  align-items: center;
+  grid-column: 1 / -1;
+  padding: 0 2em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  .footer p {
+    margin-right: 1em; }
+  .footer a {
+    color: #FFF; }
+    .footer a:hover, .footer a:focus {
+      text-decoration: underline; }
+  .footer__more {
+    display: none;
+    margin-left: auto;
+    margin-right: 0; }
+    @media screen and (min-width: 768px) {
+      .footer__more {
+        display: block; } }
+
+.nav {
+  display: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; }
+  .nav__item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .nav__link {
+    display: block;
+    color: #FFF;
+    font-weight: 200; }
+    .nav__link:hover, .nav__link:focus {
+      background-color: rgba(255, 255, 255, 0.035); }
+  @media screen and (min-width: 1024px) {
+    .nav {
+      display: block;
+      grid-column: 1 / 2; } }
+
+.section {
+  min-height: 500px;
+  min-height: calc(100vh - 4em - 4em);
+  padding-top: 300px;
+  margin-bottom: 250px;
+  position: relative;
+  transform-style: preserve-3d;
+  scroll-snap-align: start; }
+  .section__header {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: 500px;
+    padding: 2em;
+    border-radius: 0.5em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.25); }
+    .section__header::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%); }
+  .section__title {
+    font-size: 3.5em;
+    font-weight: 200;
+    margin-bottom: .5em;
+    line-height: 1; }
+  .section__subtitle {
+    font-size: 1.5em;
+    opacity: 0.8; }
+  .section__controls {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    padding: 0 2em;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%); }
+  .section__content {
+    position: relative;
+    z-index: 1;
+    padding: 0 1em; }
+  @media screen and (min-width: 1024px) {
+    .section {
+      margin-bottom: 750px; }
+      .section__header {
+        transform: translateZ(-1px) scale(1.9); }
+      .section__content {
+        padding: 0;
+        transform: translateZ(0); } }
+
+.boxgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 15px;
+  grid-auto-flow: dense; }
+  .boxgrid__item {
+    display: flex;
+    grid-row: span 1; }
+    .boxgrid__item--wide {
+      grid-column: span 2; }
+    .boxgrid__item--square {
+      grid-column: span 2;
+      grid-row: span 2; }
+    @media screen and (min-width: 1280px) {
+      .boxgrid__item--push {
+        grid-column: span 2;
+        padding-left: 50%; } }
+
+.box {
+  display: flex;
+  flex: 1 0 0;
+  position: relative;
+  padding: 2em;
+  border-radius: 0.5em;
+  font-size: 0.875em;
+  color: #FFF;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  transform: scale(1);
+  transition: all 0.3s ease;
+  filter: brightness(100%); }
+  .box:hover, .box:focus {
+    transform: scale(1.07);
+    filter: brightness(110%);
+    z-index: 10; }
+  .box--weather {
+    background-color: #91d4d5; }
+  .box--cost {
+    background-color: #66AEE5; }
+  .box--calendar {
+    background-color: rgba(160, 203, 247, 0.42); }
+  .box--locations {
+    background-color: #6C73DC; }
+  .box--image, .box--video {
+    padding: 0; }
+  .box--video::before, .box--video::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%); }
+  .box--video::before {
+    width: 50px;
+    height: 50px;
+    background-color: #FFF;
+    border-radius: 50%;
+    box-shadow: 0 0 38px rgba(0, 0, 0, 0.3); }
+  .box--video::after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent #2e3135;
+    margin-left: 2px; }
+  .box__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.5em; }
+
+.scroll {
+  display: none;
+  justify-content: center;
+  width: 50vw;
+  height: 50vw;
+  padding: 0;
+  position: fixed;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  left: 50%;
+  margin-left: -25%; }
+  .scroll:hover, .scroll:focus {
+    background-color: rgba(255, 255, 255, 0.035);
+    outline: 0;
+    border: 1px solid rgba(102, 174, 229, 0.9); }
+  .scroll--prev {
+    top: 0;
+    padding-top: 44%;
+    align-items: flex-end;
+    transform: translateY(-42vw); }
+  .scroll--next {
+    bottom: 0;
+    padding-bottom: 44%;
+    transform: translateY(42vw); }
+  @media screen and (min-width: 1024px) {
+    .scroll {
+      display: flex; } }
+
+.text--large {
+  font-size: 2em;
+  font-weight: 200; }
+
+.text--xl {
+  font-size: 3rem;
+  font-weight: 300; }
+
+.arrow {
+  display: inline-block;
+  padding: 3px;
+  border-style: solid;
+  border-width: 0 2px 2px 0; }
+  .arrow--large {
+    padding: 8px;
+    border-width: 0 1px 1px 0; }
+  .arrow--right {
+    transform: rotate(-45deg); }
+  .arrow--left {
+    transform: rotate(135deg); }
+  .arrow--up {
+    transform: rotate(-135deg); }
+  .arrow--down {
+    transform: rotate(45deg); }
+
+.media {
+  display: flex;
+  align-items: center;
+  padding: 2em; }
+  .media__img {
+    width: 60px;
+    height: 60px;
+    margin-right: 1em;
+    border-radius: 0.25em;
+    object-position: center center;
+    object-fit: cover; }
+  .media__content {
+    margin: 0; }
+
+.widget {
+  margin-left: auto;
+  text-align: center;
+  padding-top: 2em; }
+  .widget__name {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 200; }
+  .widget__img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 0.5em;
+    box-shadow: 0 0 38px rgba(0, 0, 0, 0.3); }
+
+.date--semicolon {
+  padding: 2px;
+  margin: 0;
+  transform-origin: 0 0;
+  animation: pulseOut 1s infinite ease; }
+
+@keyframes changeMonth {
+  50% {
+    transform: translate(0, 120%); } }
+
+.calendar {
+  width: 100%;
+  height: 27.75em;
+  position: relative;
+  text-align: center; }
+  .calendar__table {
+    width: 100%;
+    height: 21.875em; }
+    .calendar__table tr {
+      width: 100%; }
+  .calendar__tbody, .calendar__thead {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%; }
+  .calendar__thead {
+    height: 3.813em;
+    padding: 0.6rem;
+    z-index: 2;
+    background-color: #2e3135;
+    color: white;
+    box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.25), 0 1em 0.5em 1px rgba(0, 0, 0, 0.35), 0 1em 2em 1px rgba(0, 0, 0, 0.15); }
+    .calendar__thead .calendar__month__day {
+      font-size: 0.75em;
+      text-transform: uppercase; }
+  .calendar__tbody {
+    height: 19.438em;
+    background-color: rgba(150, 150, 150, 0.3);
+    padding: 1.2rem 0.6rem;
+    transform: translateY(0);
+    z-index: 1;
+    box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.25), 0 0.1em 0.5em 1px rgba(0, 0, 0, 0.35), 0 1em 2em 1px rgba(0, 0, 0, 0.15); }
+    .calendar__tbody--animate {
+      animation: changeMonth 0.7s ease-in-out forwards; }
+  .calendar__month {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1.32rem;
+    overflow: hidden;
+    position: relative; }
+    .calendar__month:after {
+      content: '';
+      width: 100%;
+      height: 3em;
+      border-radius: 10%;
+      position: absolute;
+      z-index: 3;
+      bottom: -3em;
+      left: 0;
+      box-shadow: 0 -1em 1em -1em rgba(0, 0, 0, 0.6), 0 0 4em -1em rgba(0, 0, 0, 0.2); }
+    .calendar__month__day {
+      display: inline-block;
+      padding: 0.6rem 0;
+      text-align: center;
+      box-sizing: border-box;
+      flex-basis: 14.28571%;
+      background-image: radial-gradient(#fb7066 50%, transparent 53%);
+      background-size: 0 0;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      transition: all 0.7s ease;
+      transition-delay: 0.3s; }
+      .calendar__month__day:hover {
+        background-size: 3.5em 3.5em; }
+      .calendar__month__day time {
+        display: inline-block; }
+      .calendar__month__day.today {
+        color: white;
+        background-size: 3.5em 3.5em; }
+        @media (max-width: 40em) {
+          .calendar__month__day.today {
+            background-size: 3em 3em; } }
+    .calendar__month__week {
+      flex-wrap: wrap; }
+  .calendar__controls {
+    color: white; }
+    .calendar__controls__button {
+      padding: 0.6rem 0.3rem;
+      cursor: pointer; }
+      .calendar__controls__button__month {
+        padding: 0 0 0 0.2rem; }
+      .calendar__controls__button__year {
+        top: -0.6em;
+        position: relative;
+        opacity: 0.6;
+        font-size: 0.9em;
+        left: 4%;
+        padding-right: 1.5rem; }
+
+.svg-icon {
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%; }
+
+.svg-icon__sprite {
+  display: none; }
+
+.svg-icon--rotated-180 {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.space--small {
+  margin-bottom: 0.7em; }
+
+@media (max-width: 75em) {
+  .space--small {
+    margin-bottom: 0.518em; } }
+
+.space--normal {
+  margin-bottom: 1.4em; }
+
+@media (max-width: 75em) {
+  .space--normal {
+    margin-bottom: 1.036em; } }
+
+.space--medium {
+  margin-bottom: 2.8em; }
+
+@media (max-width: 75em) {
+  .space--medium {
+    margin-bottom: 2.072em; } }
+
+.space--big {
+  margin-bottom: 4.2em; }
+
+@media (max-width: 75em) {
+  .space--big {
+    margin-bottom: 3.108em; } }
+
+.space--huge {
+  margin-bottom: 5.6em; }
+
+@media (max-width: 75em) {
+  .space--huge {
+    margin-bottom: 4.144em; } }
+
+.flexy__item {
+  display: flex; }
+
+.flexy__child {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0; }
+
+.flexy__child--fill {
+  flex-basis: 100%; }
+
+.flexy__item, .flexy_child {
+  box-sizing: border-box; }
+
+.flexy--row {
+  flex-direction: row; }
+
+.flexy--column {
+  flex-direction: column; }
+
+.flexy--between {
+  justify-content: space-between; }
+
+.flexy--around {
+  justify-content: space-around; }
+
+.flexy--justify-start {
+  justify-content: flex-start; }
+
+.flexy--justify-end {
+  justify-content: flex-end; }
+
+.flexy--justify-center {
+  justify-content: center; }
+
+.flexy--items-center {
+  align-items: center; }
+
+.flexy--self-end {
+  align-self: flex-end; }
+
+.flexy--reverse-column {
+  flex-direction: column-reverse; }
+
+.flexy--reverse-row {
+  flex-direction: row-reverse; }

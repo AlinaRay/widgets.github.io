@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Widget page">
+    <link rel="stylesheet" href="dist/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" async></script>
+    <title>Widgets</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="header__left">
+            <span>SIMPLE WIDGETS</span>
+        </div>
+        <div class="header__right">
+            <p></p>
+        </div>
+    </header>
+<!-- NAVIGATION SIDEBAR -->
+    <nav class="nav">
+        <ul class="nav__menu">
+            <li class="nav__item">
+                <a href="#calendar" class="nav__link" title="link" data-scroll-to>
+                    <div class="media">
+                        <img src="https://www.flaticon.com/premium-icon/icons/svg/668/668278.svg" alt="" class="media__img">
+                        <p class="media__content">
+                            <strong>CALENDAR</strong>
+                        </p>
+                    </div>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="#weather" class="nav__link" title="link" data-scroll-to>
+                    <div class="media">
+                        <img src="https://image.flaticon.com/icons/svg/169/169367.svg" alt="" class="media__img">
+                        <p class="media__content">
+                            <strong>WEATHER</strong>
+                        </p>
+                    </div>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="#" class="nav__link" title="link" data-scroll-to>
+                    <div class="media">
+                        <img src="https://image.flaticon.com/icons/svg/1355/1355663.svg" alt="" class="media__img">
+                        <p class="media__content">
+                            <strong>NOTES</strong>
+                        </p>
+                    </div>
+                </a>
+            </li>
+            <li class="nav__item">
+            <a href="#calculator" class="nav__link" title="link" data-scroll-to>
+                <div class="media">
+                    <img src="https://image.flaticon.com/icons/svg/148/148787.svg" alt="" class="media__img">
+                    <p class="media__content">
+                        <strong>CALCULATOR</strong>
+                    </p>
+                </div>
+            </a>
+        </li>
+            <li class="nav__item">
+                <a href="#something" class="nav__link" title="link" data-scroll-to>
+                    <div class="media">
+                        <img src="https://image.flaticon.com/icons/svg/148/148813.svg" alt="" class="media__img">
+                        <p class="media__content">
+                            <strong>SOMETHING</strong>
+                        </p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- CONTENT -->
+    <main class="main">
+        <!-- START OF SVG SPRITE FOR CALENDAR WIDGET -->
+        <svg class="svg-icon__sprite">
+            <defs>
+                <symbol id="working" viewBox="0 0 100 100" stroke-width="5" fill="none" stroke="white">
+                    <title>Reload icon</title>
+                    <desc>For interactions</desc>
+                            <path d="M 6,40 A 45 45 0 0 1 93.5,40 "></path>
+                            <path d="M 94,60 A 45 45 0 0 1 6.5,60 "></path>
+                            <path d="M 6.5,78 6.5,60 20,70 "></path>
+                            <path d="M 93.5,22 93.5,40 80,30 "></path>
+                </symbol>
+                <symbol id="arrow" width="25" height="25" viewBox="0 0 10 10">
+                    <title>Arrow icon</title>
+                    <desc>For interactions</desc>
+                        <circle cx="5" cy="5" r="4.5" stroke-width="0.5" stroke="white" fill="none"></circle>
+                        <polyline points="5.7,3 3.7,5 5.7,7" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" fill="white"></polyline>
+                    </symbol>
+            </defs>
+        </svg>
+        <!-- END OF SVG SPRITE FOR CALENDAR WIDGET -->
+
+        <!-- SECTION CALENDAR -->
+        <section class="section" id="calendar" data-section>
+            <header class="section__header" style="background-image: url('https://ea3a6b9a4a8a1898a596-08a2da14b4972ce109fd30c74d99ee87.ssl.cf1.rackcdn.com/Alaska-Kenai-Fjords-National-Park-Sunset-Landscape-MD180704LAK_KF027.jpg');">
+                <h1 class="section__title">Calendar</h1>
+                <p class="section__subtitle"></p>
+                <div class="section__controls">
+                    <div class="widget">
+                        <img src="https://www.abi.org.uk/globalassets/images/content/subjects/motor/wintertyers700x400.jpg?width=1600&height=1100&mode=max&anchor=middlecenter" class="widget__img" alt="">
+                        <span class="widget__name">WIDGET</span>
+                    </div>
+                </div>
+            </header>
+            <div class="section__content">
+                <ul class="boxgrid">
+                    <li class="boxgrid__item--push">
+                        <a href="#" class="box box--weather" title="link">
+                            <p><span class="text--xl weather-temp"></span><br>
+                                <span class=" weather-city"></span></p>
+                        </a>
+                    </li>
+                    <li class="boxgrid__item--square">
+                        <div class="calendar box box--calendar">
+                                <div class="calendar__month">
+                                    <div class="calendar__controls space--small" id="CALENDAR__CONTROLS">
+                                    </div>
+                                    <table class="calendar__table flexy__item flexy--column" id="CALENDAR__TABLE" width="100%" height="100%">
+                                        <thead class="calendar__thead" id="CALENDAR__THEAD"></thead>
+                                        <tbody class="calendar__tbody" id="CALENDAR__TBODY"></tbody>
+                                    </table>
+                                </div>
+                        </div>
+                    </li>
+                    <li class="boxgrid__item">
+                        <a href="#" class="box box--image" title="link">
+                            <img src="https://snowboardingskiholidays.files.wordpress.com/2010/11/skiing-winter-sports-holiday-extreme.jpg" class="box__img" alt="">
+                        </a>
+                    </li>
+                    <li class="boxgrid__item boxgrid__item--wide">
+                        <a href="#" class="box box--video" title="link">
+                            <img src="http://www.cloud-booking.net/pf/img/product/geilo365/2427/2427-2000x2000.jpg" class="box__img" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION WEATHER -->
+
+        <section class="section" id="weather" data-section>
+            <header class="section__header" style="background-image: url('https://images.wallpaperscraft.com/image/sea_shore_sunset_sky_117991_6406x4271.jpg');">
+                <h1 class="section__title">Weather</h1>
+                <p class="section__subtitle">forecast will be soon</p>
+                <div class="section__controls">
+                    <div class="widget">
+                        <img src="https://vignette.wikia.nocookie.net/central/images/1/1e/Earth-icon-free.png/revision/latest?cb=20091207005540" class="widget__img" alt="">
+                        <span class="widget__name">WIDGET</span>
+                    </div>
+                </div>
+            </header>
+            <div class="section__content">
+                <ul class="boxgrid">
+                    <li class="boxgrid__item">
+                        <a href="#" class="box box--weather" title="link">
+                            <p><span class="text--large">-10°C</span><br>
+                                Cloudy</p>
+                        </a>
+                    </li>
+                    <li class="boxgrid__item boxgrid__item--wide">
+                        <a href="#" class="box box--image" title="link">
+                            <img src="https://images.agoramedia.com/everydayhealth/gcms/My-MS-is-Like-a-National-Weather-Forecast-722x406.jpg?width=722" class="box__img" alt="">
+                        </a>
+                    </li>
+                    <li class="boxgrid__item boxgrid__item--push">
+                        <a href="#" class="box box--image" title="link">
+                            <img src="https://static.businessinsider.com/image/59ce641584da951b4d6f680e/image.jpg" class="box__img" alt="">
+                        </a>
+                    </li>
+                    <li class="boxgrid__item">
+                        <a href="#" class="box box--cost" title="link">
+                            <p><span class="text--large">Should I take an umbrella?</span></p>
+                        </a>
+                    </li>
+                    <li class="boxgrid__item boxgrid__item--square">
+                        <a href="#" class="box box--image" title="link">
+                            <img src="http://www.blugraphic.com/wp-content/uploads/2012/12/weather-widget.jpg" class="box__img" alt="">
+                        </a>
+                    </li>
+                    <li class="boxgrid__item">
+                        <a href="#" class="box box--locations" title="link">
+                            <p><span class="text--large">Kiev</span><br>
+                                LOCATION</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION CALCULATOR -->
+
+        <section class="section" id="calculator" data-section>
+            <header class="section__header" style="background-image: url('https://www.altran.com/as-content/uploads/sites/11/2017/05/5-1_altran_stock_1600.jpg');">
+                <h1 class="section__title">Calculator</h1>
+                <p class="section__subtitle"> simple and advanced will be soon</p>
+                <div class="section__controls">
+                    <div class="widget">
+                        <img src="http://www.rawscience.tv/wp-content/uploads/2014/04/x13948985486a00d8341bf7f753ef017c316c1fb3970b.jpg.pagespeed.ic_.0msSKIRS8C.jpg" class="widget__img" alt="">
+                        <span class="widget__name">WIDGET</span>
+                    </div>
+                </div>
+            </header>
+            <div class="section__content">
+                <ul class="boxgrid">
+                    <li class="boxgrid__item">
+                        <a href="#" class="box box--locations" title="link">
+                            <p><span class="text--large">%</span></p>
+                        </a>
+                    </li>
+                    <li class="boxgrid__item boxgrid__item--push">
+                        <a href="#" class="box box--image" title="link">
+                            <img src="" class="box__img" alt="">
+                        </a>
+                    </li>
+                    <li class="boxgrid__item boxgrid__item--square">
+                        <a href="#" class="box box--image" title="link">
+                            <img src="https://cdn.dribbble.com/users/1522189/screenshots/4698844/_004.png" class="box__img" alt="">
+                        </a>
+                    </li>
+                    <li class="boxgrid__item boxgrid__item--wide">
+                        <a href="#" class="box box--image" title="link">
+                            <img src="https://www.limpiatudeuda.es/wp-content/uploads/2018/03/deuda1.png" class="box__img" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION SOMETHING -->
+
+        <section class="section" id="something" data-section>
+            <header class="section__header" style="background-image: url('https://images.wallpaperscraft.com/image/kitten_face_jeans_playful_peek_59701_1280x720.jpg');">
+                <h1 class="section__title">Wait a little...</h1>
+                <p class="section__subtitle">till I grow up :)</p>
+                <div class="section__controls">
+                    <div class="widget">
+                        <img src="http://icons.iconarchive.com/icons/martin-berube/flat-animal/256/kitten-icon.png" class="widget__img" alt="">
+                        <span class="widget__name">WIDGET</span>
+                    </div>
+                </div>
+            </header>
+            <div class="section__content">
+                <ul class="boxgrid">
+                    <li class="boxgrid__item--push">
+                        <a href="#" class="box" title="link">
+                            <p><span class="text--large">right now I'm to small for showing to the world</span></p>
+                        </a>
+                    </li>
+                    <li class="boxgrid__item boxgrid__item--push">
+                        <a href="#" class="box box--image" title="link">
+                            <img src="data:image/svg+xml;base64,
+                            PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIi
+                            B2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDM5M
+                            C4xMjYgMzkwLjEyNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzkwLjEyNiAzOTAuMTI1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2
+                            ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMC40OTQ4MzkgMCAwIDAuNDk0ODM5IDk4LjUzODIgOTguNTM4KSI+PGc+Cgk8Zz4KCQk
+                            8cGF0aCBkPSJNMTMyLjY0LDE3Ny44NTljMzEuMTYyLDAsNTYuNTA4LTM0LjAxNCw1Ni41MDgtNzUuODM0YzAtNDEuODE3LTI1LjM0Ny03NS44ND
+                            EtNTYuNTA4LTc1Ljg0MSAgICBjLTMxLjE1MywwLTU2LjUwMiwzNC4wMjMtNTYuNTAyLDc1Ljg0MUM3Ni4xMzgsMTQzLjg0NSwxMDEuNDg3LDE3N
+                            y44NTksMTMyLjY0LDE3Ny44NTl6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiNDRTlE
+                            NjgiIGRhdGEtb2xkX2NvbG9yPSIjRUFENkEwIj48L3BhdGg+CgkJPHBhdGggZD0iTTMwMC4yNDYsMjUxLjYyOGMtMS4xNTktMS41NzktMi4yNy0
+                            zLjA2OC0yLjg2NC00LjM0OGMtMTIuNjM1LTI3LjA0Ni00Ny4yNy01OC45MzEtMTAzLjM4Mi01OS43MjRsLTIuMTU5LTAuMDEyICAgIGMtNTUuMj
+                            UsMC04OS42MjcsMzAuMTk3LTEwMy4zODEsNTguNDY5Yy0wLjQ3NSwwLjk2Ny0xLjUyLDIuMjIyLTIuNjI3LDMuNTQ5Yy0xLjMxLDEuNTU1LTIuN
+                            jA2LDMuMTQ2LTMuNzE0LDQuODc1ICAgIGMtMTEuNjE5LDE4LjA3NS0xNy41NDMsMzguNDI2LTE2LjY2OSw1Ny4yOTljMC45MTYsMjAuMDM3LDku
+                            MzA1LDM2LjEzMSwyMy41ODEsNDUuMzEyYzUuNzY4LDMuNzA1LDExLjk5Miw1LjU3MiwxOC41MjIsNS41NzIgICAgYzEzLjQ2NSwwLDI1Ljc5My0
+                            3LjU4NCw0MC4wNzktMTYuMzY4YzkuMDgzLTUuNTk4LDE4LjQ2NS0xMS4zNzQsMjguODg2LTE1LjY5N2MxLjE2OC0wLjM4NSw1Ljk1NC0wLjk3My
+                            wxMy43ODEtMC45NzMgICAgYzkuMzA3LDAsMTUuOTkxLDAuODI4LDE3LjQxOSwxLjMyMWMxMC4xNzMsNC40OTEsMTkuMTA3LDEwLjM4MiwyNy43N
+                            DgsMTYuMDY4YzEzLjI0Nyw4LjczMSwyNS43NTUsMTYuOTcsMzkuMzI2LDE2Ljk3ICAgIGM1LjgyNCwwLDExLjQ2OS0xLjUzNywxNi43OTUtNC41
+                            NjNjMjkuMzgyLTE2LjY5MywzNC45NzktNjIuNDkyLDEyLjQ4NC0xMDIuMDg4QzMwMi45NDIsMjU1LjMwMywzMDEuNTk3LDI1My40NDgsMzAwLjI
+                            0NiwyNTEuNjI4ICAgIHoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0NFOUQ2OCIgZG
+                            F0YS1vbGRfY29sb3I9IiNFQUQ2QTAiPjwvcGF0aD4KCQk8cGF0aCBkPSJNMjUyLjc5NiwxNzcuODU5YzMxLjE0NywwLDU2LjQ5OS0zNC4wMTQsN
+                            TYuNDk5LTc1LjgzNGMwLTQxLjgxNy0yNS4zNTItNzUuODQxLTU2LjQ5OS03NS44NDEgICAgYy0zMS4xNjUsMC01Ni41MTEsMzQuMDIzLTU2LjUx
+                            MSw3NS44NDFDMTk2LjI4NSwxNDMuODQ1LDIyMS42MzEsMTc3Ljg1OSwyNTIuNzk2LDE3Ny44NTl6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiB
+                            jbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiNDRTlENjgiIGRhdGEtb2xkX2NvbG9yPSIjRUFENkEwIj48L3BhdGg+CgkJPHBhdGggZD
+                            0iTTM0NS41OTUsMTM4LjkxOGMtMjQuOTc1LDAtNDQuNTIxLDI1LjkwMS00NC41MjEsNTguOTY3YzAsMzMuMDUxLDE5LjU1OCw1OC45NTUsNDQuN
+                            TIxLDU4Ljk1NSAgICBjMjQuOTYxLDAsNDQuNTMxLTI1LjkwNCw0NC41MzEtNTguOTU1QzM5MC4xMjYsMTY0LjgyLDM3MC41NjgsMTM4LjkxOCwz
+                            NDUuNTk1LDEzOC45MTh6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiNDRTlENjgiIGR
+                            hdGEtb2xkX2NvbG9yPSIjRUFENkEwIj48L3BhdGg+CgkJPHBhdGggZD0iTTg5LjA0OCwxOTcuODg1YzAtMzMuMDY1LTE5LjU1OC01OC45NjctND
+                            QuNTIyLTU4Ljk2N0MxOS41NjEsMTM4LjkxOCwwLDE2NC44MiwwLDE5Ny44ODUgICAgYzAsMzMuMDUxLDE5LjU2MSw1OC45NTUsNDQuNTI2LDU4L
+                            jk1NUM2OS40OTEsMjU2Ljg0LDg5LjA0OCwyMzAuOTM2LDg5LjA0OCwxOTcuODg1eiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFj
+                            dGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojQ0U5RDY4IiBkYXRhLW9sZF9jb2xvcj0iI0VBRDZBMCI+PC9wYXRoPgoJPC9nPgo8L2c+PC9nPiA8L3N
+                            2Zz4=" class="box__img" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <button class="scroll scroll--prev" data-scroll-dir="prev">
+        <span class="arrow arrow--large arrow--up"></span>
+    </button>
+    <button class="scroll scroll--next" data-scroll-dir="next">
+        <span class="arrow arrow--large arrow--down"></span>
+    </button>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+        <p>done by <a href="#" title="link">aray</a></p>
+    </footer>
+</div>
+<script src="dist/js/script.js" async></script>
+</body>
+</html>
